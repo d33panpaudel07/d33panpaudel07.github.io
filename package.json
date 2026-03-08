@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href https://d33panpaudel07.github.io/d33panpaudel07.github.io/ && npx angular-cli-ghpages --dir=dist/d33pan_portfolio/browser"
   },
   "private": true,
   "dependencies": {

@@ -1,0 +1,118 @@
+<section id="projects" style="padding: 4rem 0">
+  <h2
+    style="margin-bottom: 2rem; color: var(--text-secondary); font-size: 1.2rem"
+  >
+    user&#64;portfolio:~$
+    <span style="color: var(--text-primary)">cd ./projects && ls</span>
+    <span class="cursor-blink">_</span>
+  </h2>
+
+  <div class="projects-grid">
+    @for (proj of projects; track $index) {
+      <div
+        class="project-card"
+        style="
+          border: 1px solid var(--muted);
+          background-color: rgba(10, 10, 10, 0.8);
+          display: flex;
+          flex-direction: column;
+          transition:
+            transform 0.2s,
+            box-shadow 0.2s;
+        "
+        onmouseover="
+          this.style.transform = 'translateY(-5px)';
+          this.style.boxShadow = '0 5px 15px rgba(57, 255, 20, 0.1)';
+          this.style.borderColor = 'var(--text-secondary)';
+        "
+        onmouseout="
+          this.style.transform = 'translateY(0)';
+          this.style.boxShadow = 'none';
+          this.style.borderColor = 'var(--muted)';
+        "
+      >
+        <div
+          class="card-header"
+          style="
+            background-color: var(--muted);
+            padding: 0.5rem 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            border-bottom: 1px solid var(--muted);
+          "
+        >
+          <div style="display: flex; gap: 5px">
+            <div
+              style="
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: var(--error);
+              "
+            ></div>
+            <div
+              style="
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #ffbd44;
+              "
+            ></div>
+            <div
+              style="
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: var(--text-secondary);
+              "
+            ></div>
+          </div>
+          <span style="font-size: 0.8rem; color: #aaa; margin-left: 0.5rem">{{
+            proj.path
+          }}</span>
+        </div>
+
+        <div
+          class="card-body"
+          style="
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <h3
+            style="color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem"
+          >
+            {{ proj.title }}
+          </h3>
+          <p
+            style="
+              color: var(--text-primary);
+              margin-bottom: 1.5rem;
+              flex-grow: 1;
+              font-size: 0.9rem;
+            "
+          >
+            {{ proj.desc }}
+          </p>
+
+          <div
+            style="
+              margin-bottom: 1.5rem;
+              font-size: 0.8rem;
+              color: var(--text-secondary);
+            "
+          >
+            [TECH]: {{ proj.tech }}
+          </div>
+
+          <button style="align-self: flex-start; width: 100%; text-align: left">
+            &gt; run ./project.sh
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</section>

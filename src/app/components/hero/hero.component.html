@@ -1,0 +1,149 @@
+<section
+  class="hero-section"
+  style="
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  "
+>
+  @if (!booted) {
+    <div class="boot-sequence" style="color: var(--text-secondary)">
+      @for (log of logs; track $index) {
+        <div>{{ log }}</div>
+      }
+      <div class="cursor-blink">_</div>
+    </div>
+  } @else {
+    <div
+      class="hero-content fade-in"
+      style="animation: fadeIn 1s ease-in; position: relative"
+    >
+      <div
+        class="sys-stats"
+        style="
+          position: absolute;
+          top: 1rem;
+          right: 0;
+          text-align: right;
+          font-size: 0.8rem;
+          color: var(--text-secondary);
+        "
+      >
+        <div>CPU: 12% [||| ]</div>
+        <div>RAM: 42% [|||| ]</div>
+        <div>DSK: 68% [|||||| ]</div>
+      </div>
+
+      <div
+        style="
+          color: var(--text-secondary);
+          margin-bottom: 1rem;
+          margin-top: 2rem;
+        "
+      >
+        guest&#64;portfolio:~$
+        <span style="color: var(--text-primary)">./fetch_profile.sh</span>
+      </div>
+
+      <pre
+        class="ascii-art glitch-hover"
+        style="
+          font-size: clamp(0.5rem, 1.5vw, 1rem);
+          line-height: 1.2;
+          margin-bottom: 1.5rem;
+          overflow-x: auto;
+          white-space: pre-wrap;
+        "
+        [textContent]="asciiBanner"
+      ></pre>
+
+      <div
+        class="title-badge"
+        style="
+          display: inline-block;
+          background-color: var(--text-primary);
+          color: var(--bg-color);
+          padding: 0.3rem 1.2rem;
+          font-weight: bold;
+          margin-bottom: 2.5rem;
+          box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+          letter-spacing: 1px;
+        "
+      >
+        ANGULAR & JAVA DEVELOPER // CYBERSECURITY ENTHUSIAST
+      </div>
+
+      <div
+        class="tagline-container"
+        style="
+          background-color: rgba(26, 26, 26, 0.4);
+          border: 1px solid var(--muted);
+          border-left: 4px solid var(--accent);
+          padding: 1.5rem 2rem;
+          max-width: 800px;
+          position: relative;
+          margin-top: 1rem;
+        "
+      >
+        <div
+          style="
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: var(--bg-color);
+            padding: 0 10px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+          "
+        >
+          [INFO: user_bio.txt]
+        </div>
+        <div
+          class="tagline"
+          style="
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+          "
+        >
+          {{ typewriter
+          }}<span class="cursor-blink" style="color: var(--accent)">█</span>
+        </div>
+      </div>
+
+      <div
+        class="hero-actions"
+        style="margin-top: 2.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap"
+      >
+        <a href="#projects" style="text-decoration: none">
+          <button
+            style="
+              padding: 0.8rem 1.5rem;
+              background-color: rgba(57, 255, 20, 0.1);
+              border-color: var(--accent);
+              color: var(--text-primary);
+              font-weight: bold;
+              letter-spacing: 1px;
+            "
+          >
+            &gt; VIEW_PROJECTS.sh
+          </button>
+        </a>
+        <a href="#contact" style="text-decoration: none">
+          <button
+            style="
+              padding: 0.8rem 1.5rem;
+              border-color: var(--text-secondary);
+              color: var(--text-secondary);
+              letter-spacing: 1px;
+            "
+          >
+            &gt; INITIATE_CONTACT
+          </button>
+        </a>
+      </div>
+    </div>
+  }
+</section>

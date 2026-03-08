@@ -1,0 +1,41 @@
+.sys-stats {
+  display: block;
+}
+
+.title-badge {
+  word-break: break-word;
+  font-size: clamp(0.65rem, 2.5vw, 0.9rem);
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  a {
+    flex: 1 1 160px;
+  }
+
+  button {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.ascii-art {
+  font-size: clamp(0.35rem, 1.2vw, 0.85rem);
+  overflow-x: auto;
+  white-space: pre;
+  display: block;
+  color: var(--text-primary);
+  transition: text-shadow 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    text-shadow:
+      0 0 5px var(--text-primary),
+      0 0 10px var(--text-primary),
+      0 0 20px var(--accent),
+      0 0 40px var(--accent);
+  }
+}

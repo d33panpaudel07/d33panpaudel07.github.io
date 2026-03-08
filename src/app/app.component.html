@@ -1,0 +1,27 @@
+<div style="position: relative; z-index: 1">
+  <app-toast></app-toast>
+  <app-matrix-background></app-matrix-background>
+  <app-scanline-overlay></app-scanline-overlay>
+
+  <main
+    style="
+      padding: 0 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    "
+  >
+    <app-hero (bootComplete)="onBootComplete()"></app-hero>
+
+    @if (isBooted) {
+      <div class="fade-in" style="animation: fadeIn 1s ease-in">
+        <app-nav-bar [activeSection]="activeSection"></app-nav-bar>
+        <app-about></app-about>
+        <app-skills></app-skills>
+        <app-projects></app-projects>
+        <app-contact></app-contact>
+      </div>
+    }
+  </main>
+</div>

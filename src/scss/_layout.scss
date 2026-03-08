@@ -1,0 +1,24 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+
+  label {
+    flex-shrink: 0;
+    min-width: 60px;
+    color: var(--text-secondary);
+  }
+
+  .prompt {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+}

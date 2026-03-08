@@ -1,0 +1,38 @@
+<div class="toast-container" aria-live="polite" aria-atomic="false">
+  @for (toast of toastService.toasts$ | async; track trackById($index, toast)) {
+    <div
+      class="toast"
+      [@toastEnterLeave]
+      [style.border-left-color]="borderColor(toast.type)"
+      role="alert"
+    >
+      <!-- Header row: type prefix + dismiss -->
+      <div class="toast-header">
+        <span class="toast-prefix" [style.color]="prefixColor(toast.type)">
+          {{ prefix(toast.type) }}
+        </span>
+        <button
+          class="toast-dismiss"
+          (click)="dismiss(toast.id)"
+          aria-label="Dismiss notification"
+        >
+          [X]
+        </button>
+      </div>
+
+      <!-- Message -->
+      <div class="toast-message">
+        <span class="toast-prompt">&gt;&nbsp;</span>{{ toast.message }}
+      </div>
+
+      <!-- Progress drain bar -->
+      <div class="toast-track">
+        <div
+          class="toast-bar"
+          [style.background-color]="barColor(toast.type)"
+          [style.animation-duration]="barAnimation(toast)"
+        ></div>
+      </div>
+    </div>
+  }
+</div>

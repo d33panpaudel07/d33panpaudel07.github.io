@@ -1,0 +1,72 @@
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 1px solid var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border: 1px solid var(--bg-color);
+
+  &:hover {
+    background: var(--accent);
+  }
+}
+
+/* Scanline Overlay */
+.crt-overlay {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+::selection {
+  background: var(--text-primary);
+  color: var(--bg-color);
+}
+
+.terminal-input, .terminal-textarea {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    background-color: rgba(0, 255, 65, 0.05);
+  }
+}
+
+.terminal-input {
+  border-bottom: 1px solid var(--muted);
+  padding: 0.2rem 0;
+
+  &:focus {
+    border-bottom-color: var(--accent);
+  }
+}
+
+.terminal-textarea {
+  border-left: 2px solid var(--muted);
+  padding-left: 0.5rem;
+  resize: vertical;
+
+  &:focus {
+    border-left-color: var(--accent);
+  }
+}

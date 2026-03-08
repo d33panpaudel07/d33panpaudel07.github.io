@@ -1,0 +1,81 @@
+<section id="skills" style="padding: 4rem 0">
+  <h2
+    style="margin-bottom: 2rem; color: var(--text-secondary); font-size: 1.2rem"
+  >
+    user&#64;portfolio:~$
+    <span style="color: var(--text-primary)">ls -la ./skills/</span>
+    <span class="cursor-blink">_</span>
+  </h2>
+
+  <div style="overflow-x: auto">
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 0.9rem;
+      "
+    >
+      <thead>
+        <tr
+          style="
+            border-bottom: 1px solid var(--muted);
+            color: var(--text-secondary);
+          "
+        >
+          <th style="padding: 0.5rem">PERMISSIONS</th>
+          <th style="padding: 0.5rem">OWNER</th>
+          <th style="padding: 0.5rem">SIZE</th>
+          <th style="padding: 0.5rem">NAME</th>
+          <th style="padding: 0.5rem; width: 30%">DESCRIPTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (skill of skillsData; track $index) {
+          <tr
+            class="skill-row"
+            style="transition: background-color 0.2s ease"
+            onmouseover="this.style.backgroundColor = 'var(--muted)'"
+            onmouseout="this.style.backgroundColor = 'transparent'"
+          >
+            <td style="padding: 0.75rem 0.5rem; color: var(--text-secondary)">
+              {{ skill.perms }}
+            </td>
+            <td style="padding: 0.75rem 0.5rem; color: var(--text-secondary)">
+              {{ skill.owner }}
+            </td>
+            <td style="padding: 0.75rem 0.5rem; color: var(--accent)">
+              {{ skill.size }}
+            </td>
+            <td style="padding: 0.75rem 0.5rem; color: var(--text-primary)">
+              {{ skill.category }}.sys
+            </td>
+            <td style="padding: 0.75rem 0.5rem">
+              <div style="margin-bottom: 0.25rem">{{ skill.name }}</div>
+              <div
+                style="
+                  height: 4px;
+                  width: 100%;
+                  background-color: var(--muted);
+                  position: relative;
+                "
+              >
+                <div
+                  [style.width.%]="skill.progress"
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    background-color: var(--text-secondary);
+                    box-shadow: 0 0 5px var(--text-secondary);
+                  "
+                ></div>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
